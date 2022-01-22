@@ -38,5 +38,4 @@ override.tf.json
 terraform.rc
 
 # SSH Keys
-iac-alura.pem
 *.pem
