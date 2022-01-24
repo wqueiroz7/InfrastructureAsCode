@@ -1,0 +1,24 @@
+- hosts: terraform-ansible
+  tasks:
+    - name: Install Python 3 and VirtualEnv
+      apt:
+        pkg: 
+        - python3
+        - virtualenv
+        update_cache: yes
+      become: yes
+    - name: Install dependencies with pip
+      pip:
+        virtualenv: /home/ubuntu/first-playbook/venv
+        name:
+          - django
+          - djangorestframework  
+    - name: Initializing Project Django
+      shell: '. /home/ubuntu/first-playbook/venv/bin/activate; django-admin startproject setup /home/ubuntu/first-playbook/'
+    - name: Updating hosts on settings python-django
+      lineinfile:
+        path: /home/ubuntu/first-playbook/setup/settings.py
+        regexp: 'ALLOWED_HOSTS' 
+        line: 'ALLOWED_HOSTS = ["*"]'    
+        backrefs: yes 
+       
