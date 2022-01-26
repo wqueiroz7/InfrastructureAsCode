@@ -40,3 +40,8 @@ terraform.rc
 # SSH Keys
 iac-alura.pem
 *.pem
+IaC-DEV
+IaC-DEV.pub
+IaC-Prod
+IaC-Prod.pub
+
